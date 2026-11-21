@@ -13,12 +13,12 @@ export const Faq = () => {
             <Disclosure>
               {({ open }) => (
                 <>
-                  <DisclosureButton className="flex items-center justify-between w-full px-4 py-4 text-lg text-left text-gray-800 rounded-lg bg-gray-50 hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-indigo-100 focus-visible:ring-opacity-75 dark:bg-trueGray-800 dark:text-gray-200">
+                  <DisclosureButton className="flex items-center justify-between w-full px-4 py-4 text-lg text-left text-gray-800 rounded-lg bg-gray-50 hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-green-100 focus-visible:ring-opacity-75 dark:bg-trueGray-800 dark:text-gray-200">
                     <span>{item.question}</span>
                     <ChevronUpIcon
                       className={`${
                         open ? "transform rotate-180" : ""
-                      } w-5 h-5 text-indigo-500`}
+                      } w-5 h-5 text-green-500`}
                     />
                   </DisclosureButton>
                   <DisclosurePanel className="px-4 pt-4 pb-2 text-gray-500 dark:text-gray-300">
@@ -36,21 +36,19 @@ export const Faq = () => {
 
 const faqdata = [
   {
-    question: "Is this template completely free to use?",
-    answer: "Yes, this template is completely free to use.",
+    question: "¿AgroHome es completamente gratuito?",
+    answer: "Sí, AgroHome es una herramienta gratuita creada para apoyar a las mujeres rurales y sus familias en la gestión equitativa del hogar y los cuidados.",
   },
   {
-    question: "Can I use it in a commercial project?",
-    answer: "Yes, this you can.",
+    question: "¿Necesito internet todos los días para usarlo?",
+    answer: "No. Solo necesitas conexión unos minutos para armar o actualizar tu horario semanal; luego puedes descargar el tablero en formato PDF e imprimirlo para usarlo sin conexión.",
   },
   {
-    question: "What is your refund policy? ",
-    answer:
-      "If you're unhappy with your purchase for any reason, email us within 90 days and we'll refund you in full, no questions asked.",
+    question: "¿Puedo personalizar las tareas según las actividades de mi finca y hogar?",
+    answer: "Sí, puedes agregar tareas del hogar (cocina, limpieza, cuidado de niños o adultos mayores) y labores agrícolas o comunitarias adaptadas a la rutina de cada integrante.",
   },
   {
-    question: "Do you offer technical support? ",
-    answer:
-      "No, we don't offer technical support for free downloads. Please purchase a support plan to get 6 months of support.",
+    question: "¿Cómo funciona la alerta de sobrecarga de trabajo?",
+    answer: "El sistema suma las horas asignadas a cada miembro de la familia y te avisa visualmente si una persona está asumiendo una carga desproporcionada, sugiriendo reasignar tareas.",
   },
 ];

@@ -11,44 +11,48 @@ import { benefitOne, benefitTwo } from "@/components/data";
 export default function Home() {
   return (
     <Container>
-      <Hero />
-      <SectionTitle
-        preTitle="Nextly Benefits"
-        title=" Why should you use this landing page"
-      >
-        Nextly is a free landing page & marketing website template for startups
-        and indie projects. Its built with Next.js & TailwindCSS. And its
-        completely open-source.
-      </SectionTitle>
+      <div id="inicio" className="scroll-mt-24">
+        <Hero />
+      </div>
+      <div id="beneficios" className="scroll-mt-24">
+        <SectionTitle
+          preTitle="Beneficios"
+          title="Estos son algunos de los beneficios de AgroHome"
+        >
+          Diseñada junto a las realidades del campo ecuatoriano, nuestra plataforma convierte la planificación diaria del hogar en un acuerdo visible, equilibrado y práctico para toda la familia.
+        </SectionTitle>
+      </div>
 
       <Benefits data={benefitOne} />
       <Benefits imgPos="right" data={benefitTwo} />
 
-      <SectionTitle
-        preTitle="Watch a video"
-        title="Learn how to fullfil your needs"
-      >
-        This section is to highlight a promo or demo video of your product.
-        Analysts says a landing page with video has 3% more conversion rate. So,
-        don&apos;t forget to add one. Just like this.
-      </SectionTitle>
+      <div id="video-pitch" className="scroll-mt-24">
+        <SectionTitle
+          preTitle="Video Pitch"
+          title="Mira nuestro video pitch aquí"
+        >
+          Conoce en menos de dos minutos cómo nace AgroHome, el problema de la doble jornada en las mujeres rurales y una demostración rápida de cómo funciona nuestro tablero familiar.
+        </SectionTitle>
+      </div>
 
       <Video videoId="fZ0D0cnR88E" />
 
-      <SectionTitle
-        preTitle="Testimonials"
-        title="Here's what our customers said"
-      >
-        Testimonials is a great way to increase the brand trust and awareness.
-        Use this section to highlight your popular customers.
-      </SectionTitle>
+      <div id="testimonios" className="scroll-mt-24">
+        <SectionTitle
+          preTitle="Testimonios"
+          title="Lo que dicen las mujeres que ya lo usan"
+        >
+          Historias reales de agricultoras y jefas de hogar que transformaron la organización diaria de sus familias con AgroHome.
+        </SectionTitle>
+      </div>
 
       <Testimonials />
 
-      <SectionTitle preTitle="FAQ" title="Frequently Asked Questions">
-        Answer your customers possible questions here, it will increase the
-        conversion rate as well as support or chat requests.
-      </SectionTitle>
+      <div id="preguntas-frecuentes" className="scroll-mt-24">
+        <SectionTitle preTitle="Preguntas frecuentes" title="A continuación...">
+          Resolvemos tus principales dudas sobre cómo funciona AgroHome y cómo empezar a usarlo con tu familia.
+        </SectionTitle>
+      </div>
 
       <Faq />
       <Cta />
