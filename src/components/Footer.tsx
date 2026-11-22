@@ -24,18 +24,14 @@ export function Footer() {
         <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <div>
-              <Link
-                href="/"
-                className="flex items-center space-x-2 text-2xl font-medium text-green-500 dark:text-gray-100"
-              >
+              <Link href="/" className="flex items-center">
                 <Image
-                  src="/img/logo.svg"
-                  alt="N"
-                  width="32"
-                  height="32"
-                  className="w-8"
+                  src="/img/AgroHome.png"
+                  alt="AgroHome"
+                  width="152"
+                  height="56"
+                  className="w-[152px] h-14 object-contain"
                 />
-                <span>AgroHome</span>
               </Link>
             </div>
 

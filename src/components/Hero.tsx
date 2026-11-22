@@ -1,77 +1,77 @@
 import Image from "next/image";
 import { Container } from "@/components/Container";
-import heroImg from "../../public/img/hero.png";
+import agricultoraImg from "../../public/img/Agricultora.png";
 
 export const Hero = () => {
   return (
     <>
-      <Container className="flex flex-wrap ">
-        <div className="flex items-center w-full lg:w-1/2">
-          <div className="max-w-2xl mb-8">
-            <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
+      <section className="relative isolate flex min-h-[620px] items-center overflow-hidden">
+        <Image
+          src={agricultoraImg}
+          fill
+          sizes="100vw"
+          className="object-cover object-[35%_center] lg:object-center"
+          alt="Agricultora"
+          loading="eager"
+          placeholder="blur"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-l from-black/75 via-black/45 to-black/10 dark:from-black/80 dark:via-black/55 dark:to-black/20" />
+
+        <div className="container relative z-10 mx-auto px-8 py-16 xl:px-0">
+          <div dir="ltr" className="max-w-3xl ml-auto text-left">
+            <h1 className="text-4xl font-bold leading-snug tracking-tight text-white lg:text-5xl lg:leading-tight xl:text-6xl xl:leading-tight">
               ¡Bienvenidos a AgroHome!
             </h1>
-            <p className="py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300">
+            <p className="max-w-2xl py-5 text-xl leading-normal text-white/90 lg:text-xl xl:text-2xl">
               La herramienta digital que ayuda a las mujeres rurales y sus familias a organizar las tareas del hogar y el campo, visibilizar la carga de cuidados y lograr una distribución justa del tiempo.
             </p>
 
-            <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
+            <div className="flex flex-col items-start space-y-3 sm:justify-start sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
               <a
                 href="https://web3templates.com/templates/nextly-landing-page-template-for-startups"
                 target="_blank"
                 rel="noopener"
-                className="px-8 py-4 text-lg font-medium text-center text-white bg-green-600 rounded-md ">
+                className="px-8 py-4 text-lg font-medium text-center text-white bg-green-600 rounded-md hover:bg-green-700">
                 Crear Tablero Familiar
               </a>
               <a
                 href="https://github.com/web3templates/nextly-template/"
                 target="_blank"
                 rel="noopener"
-                className="px-8 py-4 text-lg font-medium text-center text-white bg-gray-600 rounded-md">
-                <span>Invesriones</span>
+                className="px-8 py-4 text-lg font-medium text-center text-white bg-gray-700/90 rounded-md hover:bg-gray-800">
+                <span>Imprimirlo</span>
               </a>
             </div>
           </div>
         </div>
-        <div className="flex items-center justify-center w-full lg:w-1/2">
-          <div className="">
-            <Image
-              src={heroImg}
-              width="616"
-              height="617"
-              className={"object-cover"}
-              alt="Hero Illustration"
-              loading="eager"
-              placeholder="blur"
-            />
-          </div>
-        </div>
-      </Container>
-      <Container>
-        <div className="flex flex-col justify-center">
-          <div className="text-xl text-center text-gray-700 dark:text-white">
-            Impulsado en el Hackatón Cultivando Igualdad · Fundación Heifer Ecuador & i3lab ESPOL
-          </div>
+      </section>
+      <div className="w-full bg-gray-100 dark:bg-gray-800">
+        <Container>
+          <div className="flex flex-col justify-center">
+            <div className="text-xl text-center text-gray-700 dark:text-white">
+              Impulsado en el Hackatón Cultivando Igualdad
+            </div>
 
-          <div className="flex flex-wrap justify-center gap-5 mt-10 md:justify-around">
-            <div className="pt-2 text-gray-400 dark:text-gray-400">
-              <AmazonLogo />
-            </div>
-            <div className="text-gray-400 dark:text-gray-400">
-              <VerizonLogo />
-            </div>
-            <div className="text-gray-400 dark:text-gray-400">
-              <MicrosoftLogo />
-            </div>
-            <div className="pt-1 text-gray-400 dark:text-gray-400">
-              <NetflixLogo />
-            </div>
-            <div className="pt-2 text-gray-400 dark:text-gray-400">
-              <SonyLogo />
+            <div className="flex flex-wrap items-center justify-center gap-10 mt-10 md:gap-16">
+            <Image
+              src="/img/brands/heifer.png"
+              width="220"
+              height="80"
+              alt="Fundación Heifer Ecuador"
+              className="h-20 w-auto object-contain"
+            />
+            <Image
+              src="/img/brands/logo+i3lab+espol.png"
+              width="220"
+              height="80"
+              alt="i3lab ESPOL"
+              className="h-20 w-auto object-contain"
+            />
             </div>
           </div>
-        </div>
-      </Container>
+        </Container>
+      </div>
     </>
   );
 }

@@ -1,34 +1,67 @@
 "use client";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import ThemeChanger from "./DarkSwitch";
 import Image from "next/image"
 import { Disclosure } from "@headlessui/react";
 
+const navigation = [
+  { label: "Inicio", href: "#inicio" },
+  { label: "Beneficios", href: "#beneficios" },
+  { label: "Video Pitch", href: "#video-pitch" },
+  { label: "Testimonios", href: "#testimonios" },
+  { label: "Preguntas frecuentes", href: "#preguntas-frecuentes" },
+];
+
 export const Navbar = () => {
-  const navigation = [
-    { label: "Inicio", href: "#inicio" },
-    { label: "Beneficios", href: "#beneficios" },
-    { label: "Video Pitch", href: "#video-pitch" },
-    { label: "Testimonios", href: "#testimonios" },
-    { label: "Preguntas frecuentes", href: "#preguntas-frecuentes" },
-  ];
+  const [activeSection, setActiveSection] = useState("#inicio");
+
+  useEffect(() => {
+    const sections = navigation
+      .map(({ href }) => document.querySelector(href))
+      .filter((section): section is Element => section !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSection = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visibleSection) {
+          setActiveSection(`#${visibleSection.target.id}`);
+        }
+      },
+      { rootMargin: "-20% 0px -60% 0px", threshold: [0, 0.25, 0.5, 0.75] }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    const updateFromHash = () => {
+      if (window.location.hash) setActiveSection(window.location.hash);
+    };
+
+    updateFromHash();
+    window.addEventListener("hashchange", updateFromHash);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("hashchange", updateFromHash);
+    };
+  }, []);
 
   return (
-    <div className="w-full">
+    <div className="sticky top-0 z-50 w-full border-b border-gray-200 bg-gray-100/95 backdrop-blur-sm dark:border-gray-700 dark:bg-gray-800/95">
       <nav className="container relative flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-1">
         {/* Logo  */}
         <Link href="/">
-          <span className="flex items-center space-x-2 text-2xl font-medium text-green-500 dark:text-gray-100">
-              <span>
-                <Image
-                  src="/img/logo.svg"
-                  width="32"
-                  alt="N"
-                  height="32"
-                  className="w-8"
-                />
-              </span>
-            <span>AgroHome</span>
+          <span className="flex items-center">
+            <Image
+              src="/img/AgroHome.png"
+              width="217"
+              height="80"
+              alt="AgroHome"
+              className="w-[217px] h-20 object-contain"
+            />
           </span>
         </Link>
 
@@ -37,7 +70,7 @@ export const Navbar = () => {
             <ThemeChanger />
             <div className="hidden mr-3 lg:flex nav__item">
               <Link href="/" className="px-6 py-2 text-white bg-green-600 rounded-md md:ml-5">
-                Registrarse
+                Inversiones
               </Link>
             </div>
         </div>
@@ -71,7 +104,15 @@ export const Navbar = () => {
                 <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
                   <>
                     {navigation.map((item) => (
-                      <Link key={item.href} href={item.href} className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-green-500 focus:text-green-500 focus:bg-green-100 dark:focus:bg-gray-800 focus:outline-none">
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className={`w-full px-4 py-2 -ml-4 rounded-md focus:outline-none ${
+                          activeSection === item.href
+                            ? "bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300"
+                            : "text-gray-500 hover:text-green-600 hover:bg-green-50 focus:text-green-600 focus:bg-green-50 dark:text-gray-300 dark:hover:text-green-300 dark:hover:bg-green-900/40 dark:focus:text-green-300 dark:focus:bg-green-900/40"
+                        }`}
+                      >
                           {item.label}
                       </Link>
                     ))}
@@ -89,7 +130,15 @@ export const Navbar = () => {
           <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
             {navigation.map((menu) => (
               <li className="mr-3 nav__item" key={menu.href}>
-                <Link href={menu.href} className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-green-500 focus:text-green-500 focus:bg-green-100 focus:outline-none dark:focus:bg-gray-800">
+                <Link
+                  href={menu.href}
+                  aria-current={activeSection === menu.href ? "location" : undefined}
+                  className={`inline-block px-4 py-2 text-lg font-normal no-underline rounded-md focus:outline-none ${
+                    activeSection === menu.href
+                      ? "bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300"
+                      : "text-gray-800 hover:text-green-600 hover:bg-green-50 focus:text-green-600 focus:bg-green-50 dark:text-gray-200 dark:hover:text-green-300 dark:hover:bg-green-900/40 dark:focus:text-green-300 dark:focus:bg-green-900/40"
+                  }`}
+                >
                     {menu.label}
                 </Link>
               </li>
