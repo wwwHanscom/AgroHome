@@ -8,14 +8,14 @@ import { Disclosure } from "@headlessui/react";
 const navigation = [
   { label: "Inicio", href: "#inicio" },
   { label: "Beneficios", href: "#beneficios" },
-  { label: "Video Pitch", href: "#video-pitch" },
+  { label: "Tutorial", href: "#video-pitch" },
   { label: "Testimonios", href: "#testimonios" },
-  { label: "Preguntas frecuentes", href: "#preguntas-frecuentes" },
+  { label: "Consultas", href: "#preguntas-frecuentes" },
 ];
 
 export const Navbar = () => {
   const pathname = usePathname();
-  if (pathname === "/tablero") return null;
+  if (pathname === "/tablero" || pathname === "/registro" || pathname === "/inicio") return null;
 
   return (
     <div className="sticky top-0 z-50 w-full border-b border-gray-200 bg-gray-100/95 backdrop-blur-sm dark:border-gray-700 dark:bg-gray-800/95">
@@ -34,9 +34,17 @@ export const Navbar = () => {
 
         <div className="gap-3 nav__item mr-2 lg:flex ml-auto lg:ml-0 lg:order-2">
           <ThemeChanger />
-          <div className="hidden mr-3 lg:flex nav__item">
-            <Link href="/" className="px-6 py-2 text-white bg-green-600 rounded-md md:ml-5">
-              Agro Negocios
+          <div className="hidden mr-3 lg:flex lg:items-center nav__item">
+            <a
+              href="/TableroFamiliar.pdf"
+              download="TableroFamiliar.pdf"
+              className="px-6 py-2 text-white bg-gray-700/90 rounded-md md:ml-5">
+              Descargar tablero
+            </a>
+            <Link
+              href="/tablero"
+              className="px-6 py-2 ml-3 text-white bg-green-600 rounded-md">
+              Crear tablero
             </Link>
           </div>
         </div>
@@ -75,8 +83,16 @@ export const Navbar = () => {
                     {item.label}
                   </Link>
                 ))}
-                <Link href="/" className="w-full px-6 py-2 mt-3 text-center text-white bg-green-600 rounded-md lg:ml-5">
-                  Agro Negocios
+                <a
+                  href="/TableroFamiliar.pdf"
+                  download="TableroFamiliar.pdf"
+                  className="w-full px-6 py-2 mt-3 text-center text-white bg-gray-700/90 rounded-md lg:ml-5">
+                  Descargar tablero
+                </a>
+                <Link
+                  href="/tablero"
+                  className="w-full px-6 py-2 mt-3 text-center text-white bg-green-600 rounded-md lg:ml-5">
+                  Crear tablero
                 </Link>
               </Disclosure.Panel>
             </>

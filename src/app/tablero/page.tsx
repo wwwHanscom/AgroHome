@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { TableroFamiliar } from "@/components/TableroFamiliar";
-import { TableroNavbar } from "@/components/TableroNavbar";
+import { NavBarVariable } from "@/components/NavBarVariable";
 
 export const metadata: Metadata = {
   title: "Tablero Familiar | AgroHome",
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function TableroPage() {
   return (
     <>
-      <TableroNavbar />
+      <NavBarVariable title="Tablero Familiar" />
       <TableroFamiliar />
     </>
   );

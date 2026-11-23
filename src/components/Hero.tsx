@@ -24,20 +24,19 @@ export const Hero = () => {
               ¡Bienvenidos a AgroHome!
             </h1>
             <p className="max-w-2xl py-5 text-xl leading-normal text-white/90 lg:text-xl xl:text-2xl">
-              El Tablero Familiar que ayuda a las mujeres de la Agricultura Familiar Campesina y sus familias a organizar las tareas del hogar, visibilizar la carga de cuidados y lograr una distribución justa del tiempo.
+              Esta plataforma esta diseñada para que las mujeres de la Agricultura Familiar Campesina, den a conocer su historia, den visibiliza a su producción y encuentra posibles compradores e inversionistas. Si eres comprador o inversionista, regístrate y conecta con nuestras agricultoras.
             </p>
 
             <div className="flex flex-col items-start space-y-3 sm:justify-start sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
               <a
                 href="/tablero"
                 className="px-8 py-4 text-lg font-medium text-center text-white bg-green-600 rounded-md hover:bg-green-700">
-                Crear Tablero Familiar
+                Iniciar sesión
               </a>
               <a
-                href="/TableroFamiliar.pdf"
-                download="TableroFamiliar.pdf"
+                href="/registro"
                 className="px-8 py-4 text-lg font-medium text-center text-white bg-gray-700/90 rounded-md hover:bg-gray-800">
-                <span>Imprimirlo</span>
+                <span>Registrarse</span>
               </a>
             </div>
           </div>
@@ -66,6 +65,7 @@ export const Hero = () => {
               className="h-20 w-auto object-contain"
             />
             </div>
+            
           </div>
         </Contenedor>
       </div>

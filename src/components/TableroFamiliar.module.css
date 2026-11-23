@@ -703,14 +703,19 @@
   .scheduleTable thead th {
     position: static;
     height: 22px;
-    background: #edf5ea;
+    background: #d1d5db;
     color: #111;
     font-size: 9px;
   }
 
+  .scheduleTable tbody th,
+  .scheduleTable tbody td {
+    height: 28px;
+  }
+
 
   .timeCol {
-    width: 62px;
+    width: 72px;
     background: #f4f7f1;
     font-weight: 600;
     color: #111;
@@ -752,7 +757,9 @@
   }
 
   .printFooterBox {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
     background: #fff;
     color: #111;
     margin-top: auto;

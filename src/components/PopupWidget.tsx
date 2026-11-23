@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { usePathname } from "next/navigation";
 import { useForm, useWatch } from "react-hook-form";
 import {
   Disclosure,
@@ -9,6 +10,7 @@ import {
 } from "@headlessui/react";
 
 export function PopupWidget() {
+  const pathname = usePathname();
   const {
     register,
     handleSubmit,
@@ -23,6 +25,8 @@ export function PopupWidget() {
   const [Message, setMessage] = useState("");
 
   const userName = useWatch({ control, name: "name", defaultValue: "Someone" });
+
+  if (pathname === "/inicio") return null;
 
   const onSubmit = async (data: any, e: any) => {
     console.log(data);

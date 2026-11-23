@@ -399,7 +399,7 @@ export function TableroFamiliar() {
 
     if (!memberName || !activityName) return;
 
-    if (!members.includes(memberName)) {
+    if (!members.includes(memberName) && !notes.includes(memberName)) {
       setMembers((current) => [...current, memberName]);
     }
 
@@ -680,7 +680,14 @@ export function TableroFamiliar() {
           <ol className={styles.numberedList}>
             {displayedNotes.map((note, index) => (
               <li key={`note-${index}`} className={!note ? styles.emptyRow : undefined}>
-                <span>{note}</span>
+                <span>
+                  {note}
+                  {note && (
+                    <strong className={`${styles.memberHours} ${getMemberHourClass(note)}`}>
+                      {` - ${formatMemberHours(note)}`}
+                    </strong>
+                  )}
+                </span>
                 {note && (
                   <button
                     type="button"
@@ -730,7 +737,17 @@ export function TableroFamiliar() {
         </section>
 
         <div className={styles.printFooterBox}>
-          Encuentra compradores y posibles inversionistas
+          <span>Compártenos tu historia con el tablero, encuentra posibles compradores y posibles inversionistas en el sitio:</span>
+          <span>https://www.agrohome.com</span>
+          <br/>
+          <strong>Contacto y Ayuda</strong>
+          <span>Si necesitas ayuda con el registro, contáctanos:</span>
+          <span>
+            <strong>WhatsApp:</strong> 0991507567
+          </span>
+          <span>
+            <strong>Llamada telefónica:</strong> (02) 1234 123
+          </span>
         </div>
 
         <button
@@ -893,7 +910,9 @@ export function TableroFamiliar() {
               required
             />
             <datalist id="lista-miembros-modal">
-              {members.map((member) => <option key={member} value={member} />)}
+              {[...members, ...notes]
+                .filter((name, index, names) => name && names.indexOf(name) === index)
+                .map((name) => <option key={name} value={name} />)}
             </datalist>
           </label>
 

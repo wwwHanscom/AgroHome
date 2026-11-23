@@ -1,9 +1,15 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
+import { usePathname } from "next/navigation";
 import { Contenedor } from "@/components/Contenedor";
 
 export function Footer() {
+  const pathname = usePathname();
+  if (pathname === "/inicio") return null;
+
   const navigation = [
     { label: "Inicio", href: "#inicio" },
     { label: "Beneficios", href: "#beneficios" },
