@@ -54,7 +54,7 @@ export function PopupWidget() {
   };
 
   return (
-    <div>
+    <div className="popup-widget">
       <Disclosure>
         {({ open }) => (
           <>

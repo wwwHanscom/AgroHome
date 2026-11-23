@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React from "react";
-import { Container }  from "@/components/Container";
+import { Contenedor }  from "@/components/Contenedor";
 
-interface BenefitsProps {
+interface BeneficiosProps {
   imgPos?: "left" | "right";
   data: {
     imgPos?: "left" | "right";
@@ -16,10 +16,10 @@ interface BenefitsProps {
     }[];
   };
 }
-export const Benefits = (props: Readonly<BenefitsProps>) => {
+export const Beneficios = (props: Readonly<BeneficiosProps>) => {
   const { data } = props;
   return (
-      <Container className="flex flex-wrap mb-20 lg:gap-10 lg:flex-nowrap ">
+      <Contenedor className="flex flex-wrap mb-20 lg:gap-10 lg:flex-nowrap ">
         <div
           className={`flex items-center justify-center w-full lg:w-1/2 ${
             props.imgPos === "right" ? "lg:order-1" : ""
@@ -29,7 +29,7 @@ export const Benefits = (props: Readonly<BenefitsProps>) => {
               src={data.image}
               width={521}
               height={521}
-              alt="Benefits"
+              alt="Beneficios"
               className={"object-cover"}
               placeholder="blur"
               blurDataURL={data.image.src}
@@ -54,18 +54,18 @@ export const Benefits = (props: Readonly<BenefitsProps>) => {
 
             <div className="w-full mt-5">
               {data.bullets.map((item, index) => (
-                <Benefit key={index} title={item.title} icon={item.icon}>
+                <Beneficio key={index} title={item.title} icon={item.icon}>
                   {item.desc}
-                </Benefit>
+                </Beneficio>
               ))}
             </div>
           </div>
         </div>
-      </Container>
+      </Contenedor>
   );
 };
 
-function Benefit(props: any) {
+function Beneficio(props: any) {
   return (
       <div className="flex items-start mt-8 space-x-3">
         <div className="flex items-center justify-center flex-shrink-0 mt-1 bg-green-500 rounded-md w-11 h-11 ">

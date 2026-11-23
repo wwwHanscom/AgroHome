@@ -1,7 +1,7 @@
-import { Container } from "@/components/Container";
+import { Contenedor } from "@/components/Contenedor";
 import { Hero } from "@/components/Hero";
 import { SectionTitle } from "@/components/SectionTitle";
-import { Benefits } from "@/components/Benefits";
+import { Beneficios } from "@/components/Beneficios";
 import { Video } from "@/components/Video";
 import { Testimonials } from "@/components/Testimonials";
 import { Faq } from "@/components/Faq";
@@ -10,21 +10,22 @@ import { Cta } from "@/components/Cta";
 import { benefitOne, benefitTwo } from "@/components/data";
 export default function Home() {
   return (
-    <Container>
+    <Contenedor>
       <div id="inicio" className="scroll-mt-24">
         <Hero />
       </div>
       <div id="beneficios" className="scroll-mt-24">
         <SectionTitle
           preTitle="Beneficios"
-          title="Estos son algunos de los beneficios de AgroHome"
+          title="Estos son algunos de los beneficios del Tablero Familiar de AgroHome"
         >
+          Un tablero familiar es un espacio visual donde los integrantes de un hogar organizan, comparten y consultan de forma transparente las actividades, responsabilidades y acuerdos del día a día.
           Diseñada junto a las realidades del campo ecuatoriano, nuestra plataforma convierte la planificación diaria del hogar en un acuerdo visible, equilibrado y práctico para toda la familia.
         </SectionTitle>
       </div>
 
-      <Benefits data={benefitOne} />
-      <Benefits imgPos="right" data={benefitTwo} />
+      <Beneficios data={benefitOne} />
+      <Beneficios imgPos="right" data={benefitTwo} />
 
       <div id="video-pitch" className="scroll-mt-24">
         <SectionTitle
@@ -56,6 +57,6 @@ export default function Home() {
 
       <Faq />
       <Cta />
-    </Container>
+    </Contenedor>
   );
 }

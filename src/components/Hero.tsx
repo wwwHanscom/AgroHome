@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Container } from "@/components/Container";
+import { Contenedor } from "@/components/Contenedor";
 import agricultoraImg from "../../public/img/Agricultora.png";
 
 export const Hero = () => {
@@ -24,21 +24,18 @@ export const Hero = () => {
               ¡Bienvenidos a AgroHome!
             </h1>
             <p className="max-w-2xl py-5 text-xl leading-normal text-white/90 lg:text-xl xl:text-2xl">
-              La herramienta digital que ayuda a las mujeres rurales y sus familias a organizar las tareas del hogar y el campo, visibilizar la carga de cuidados y lograr una distribución justa del tiempo.
+              El Tablero Familiar que ayuda a las mujeres de la Agricultura Familiar Campesina y sus familias a organizar las tareas del hogar, visibilizar la carga de cuidados y lograr una distribución justa del tiempo.
             </p>
 
             <div className="flex flex-col items-start space-y-3 sm:justify-start sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
               <a
-                href="https://web3templates.com/templates/nextly-landing-page-template-for-startups"
-                target="_blank"
-                rel="noopener"
+                href="/tablero"
                 className="px-8 py-4 text-lg font-medium text-center text-white bg-green-600 rounded-md hover:bg-green-700">
                 Crear Tablero Familiar
               </a>
               <a
-                href="https://github.com/web3templates/nextly-template/"
-                target="_blank"
-                rel="noopener"
+                href="/TableroFamiliar.pdf"
+                download="TableroFamiliar.pdf"
                 className="px-8 py-4 text-lg font-medium text-center text-white bg-gray-700/90 rounded-md hover:bg-gray-800">
                 <span>Imprimirlo</span>
               </a>
@@ -46,11 +43,11 @@ export const Hero = () => {
           </div>
         </div>
       </section>
-      <div className="w-full bg-gray-100 dark:bg-gray-800">
-        <Container>
+      <div className="w-full bg-gray-100">
+        <Contenedor>
           <div className="flex flex-col justify-center">
-            <div className="text-xl text-center text-gray-700 dark:text-white">
-              Impulsado en el Hackatón Cultivando Igualdad
+            <div className="text-xl text-center text-black">
+              Impulsado en el Hackathon &quot;Cultivando Igualdad&quot;
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-10 mt-10 md:gap-16">
@@ -70,7 +67,7 @@ export const Hero = () => {
             />
             </div>
           </div>
-        </Container>
+        </Contenedor>
       </div>
     </>
   );

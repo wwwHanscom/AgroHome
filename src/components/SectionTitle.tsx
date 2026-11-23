@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "@/components/Container";
+import { Contenedor } from "@/components/Contenedor";
 
 interface SectionTitleProps {
   preTitle?: string;
@@ -10,7 +10,7 @@ interface SectionTitleProps {
 
 export const SectionTitle = (props: Readonly<SectionTitleProps>) => {
   return (
-    <Container
+    <Contenedor
       className={`flex w-full flex-col mt-4 ${
         props.align === "left" ? "" : "items-center justify-center text-center"
       }`}>
@@ -31,7 +31,7 @@ export const SectionTitle = (props: Readonly<SectionTitleProps>) => {
           {props.children}
         </p>
       )}
-    </Container>
+    </Contenedor>
   );
 }
 

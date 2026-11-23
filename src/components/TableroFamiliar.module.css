@@ -1,0 +1,804 @@
+.page {
+  --ink: #243126;
+  --green: #3f7d3d;
+  --green-soft: #edf5ea;
+  --surface: #ffffff;
+  --surface-soft: #f8faf7;
+  --page: #f4f5f1;
+  --border: #d9dfd4;
+  --muted: #65705f;
+  min-height: calc(100vh - 180px);
+  display: grid;
+  grid-template-columns: 310px minmax(0, 1fr);
+  gap: 18px;
+  padding: 18px;
+  background: var(--page);
+  color: var(--ink);
+}
+
+:global(.dark) .page {
+  --ink: #f3f4f3;
+  --green: #66a85f;
+  --green-soft: #1a1a1a;
+  --surface: #111111;
+  --surface-soft: #1a1a1a;
+  --page: #000000;
+  --border: #2f2f2f;
+  --muted: #b5b5b5;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.brandLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  color: #2f602f;
+  font-size: 22px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.roofIcon {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 2px solid #4f7f46;
+  border-radius: 8px;
+  font-size: 25px;
+  line-height: 1;
+}
+
+.card,
+.promoCard {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.card {
+  padding: 14px;
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  font-size: 15px;
+}
+
+.inlineForm {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 38px;
+  gap: 7px;
+}
+
+.inlineForm input,
+.cellModal input,
+.cellModal select {
+  min-width: 0;
+  height: 38px;
+  border: 1px solid #cbd3c5;
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--ink);
+  padding: 0 10px;
+  outline: none;
+}
+
+.inlineForm input:focus,
+.cellModal input:focus,
+.cellModal select:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(63, 125, 61, 0.12);
+}
+
+.inlineForm button {
+  border: 0;
+  border-radius: 6px;
+  background: var(--green);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.numberedList {
+  max-height: 108px;
+  margin: 10px 0 0;
+  padding-left: 22px;
+  overflow-y: auto;
+}
+
+.numberedList li {
+  display: list-item;
+  padding: 3px 0;
+  font-size: 14px;
+}
+
+.numberedList li span {
+  display: inline;
+}
+
+.memberHours {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--green);
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.memberHoursYellow {
+  color: #b58900;
+}
+
+.memberHoursRed {
+  color: #dc2626;
+}
+
+.removeItemButton {
+  width: 24px;
+  height: 24px;
+  float: right;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #7a8276;
+  font-size: 18px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.removeItemButton:hover,
+.removeItemButton:focus-visible {
+  background: #fee7e5;
+  color: #b42318;
+  outline: none;
+}
+
+.promoCard {
+  min-height: 82px;
+  display: grid;
+  place-items: center;
+  margin-top: auto;
+  padding: 14px;
+  background: #dce9d5;
+  color: #4a5b43;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.printButton {
+  min-width: 120px;
+  height: 38px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--green);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.printButton:hover,
+.printButton:focus-visible {
+  background: #356a33;
+  outline: none;
+}
+
+.scheduleContainer {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.tableToolbar {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  border-top: 1px solid var(--border);
+  padding: 6px 8px;
+}
+
+.resetTableButton,
+.addRowButton {
+  height: 34px;
+  border: 1px solid #4f7f46;
+  border-radius: 6px;
+  background: #4f7f46;
+  color: #fff;
+  padding: 0 12px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.resetTableButton {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.addRowButton:disabled {
+  border-color: #aeb7a8;
+  background: #aeb7a8;
+  cursor: not-allowed;
+}
+
+.tableWrapper {
+  height: calc(100vh - 264px);
+  min-height: 520px;
+  overflow: auto;
+}
+
+.scheduleTable {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.scheduleTable th,
+.scheduleTable td {
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.scheduleTable thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  height: 48px;
+  background: #edf5ea;
+  color: #40523c;
+  font-size: 14px;
+}
+
+.timeCol {
+  width: 132px;
+  background: var(--surface-soft);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.hourHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.hourFormatSelect {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #d9dfd4;
+  border-radius: 4px;
+  background: #edf5ea;
+  color: #40523c;
+  cursor: pointer;
+  font-size: 0;
+}
+
+.hourFormatSelect option {
+  background: #ffffff;
+  color: #40523c;
+  font-size: 12px;
+}
+
+.removeColumn {
+  width: 42px;
+  min-width: 42px;
+  padding: 0;
+  text-align: center;
+}
+
+.removeRowButton {
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #7a8276;
+  font-size: 18px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.rowMenuButton {
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.rowMenuButton:hover,
+.rowMenuButton:focus-visible {
+  background: var(--green-soft);
+  color: var(--ink);
+  outline: none;
+}
+
+.rowMenu {
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  min-width: 180px;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.rowMenu button {
+  height: 36px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  padding: 0 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.rowMenu button:hover,
+.rowMenu button:focus-visible {
+  background: var(--green-soft);
+  outline: none;
+}
+
+.removeRowButton:hover,
+.removeRowButton:focus-visible {
+  background: #fee7e5;
+  color: #b42318;
+  outline: none;
+}
+
+.hourInput {
+  width: 100%;
+  height: 34px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.hourInput:hover,
+.hourInput:focus {
+  border-color: var(--green);
+  background: var(--surface);
+  outline: none;
+}
+
+.cellButton {
+  width: 100%;
+  height: 52px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.cellButton:hover,
+.cellButton:focus-visible {
+  background: var(--green-soft);
+  outline: 2px solid #91aa89;
+  outline-offset: -3px;
+}
+
+.selectedCell {
+  background: #dbeafe;
+  outline: 2px solid #3b82f6;
+  outline-offset: -3px;
+}
+
+:global(.dark) .selectedCell {
+  background: #1e3a5f;
+  outline-color: #60a5fa;
+}
+
+.contextMenu {
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  min-width: 150px;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.contextMenu button {
+  height: 36px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  padding: 0 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.contextMenu button:hover,
+.contextMenu button:focus-visible {
+  background: var(--green-soft);
+  color: var(--ink);
+  outline: none;
+}
+
+.contextMenu button:disabled {
+  color: var(--muted);
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.assignment {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.assignment strong {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--green);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.assignment small {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.cellModal {
+  width: min(420px, calc(100vw - 32px));
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 18px 60px rgba(30, 45, 29, 0.25);
+}
+
+.cellModal::backdrop {
+  background: rgba(28, 38, 27, 0.45);
+}
+
+.cellModal form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cellModal h4 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.modalCloseButton {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modalCloseButton:hover,
+.modalCloseButton:focus-visible {
+  background: var(--green-soft);
+  color: var(--ink);
+  outline: none;
+}
+
+.cellModal label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.modalActions button {
+  height: 38px;
+  border-radius: 6px;
+  padding: 0 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btnSecondary {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.btnPrimary {
+  border: 1px solid var(--green);
+  background: var(--green);
+  color: #fff;
+}
+
+.printLogo {
+  display: none;
+}
+
+.printOnlyText {
+  display: none;
+}
+
+.printFooterBox {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 8mm;
+  }
+
+  .noPrint {
+    display: none !important;
+  }
+
+  :global(.dark) .page,
+  :global(.dark) .sidebar,
+  :global(.dark) .card,
+  :global(.dark) .scheduleContainer {
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  .page {
+    display: grid;
+    grid-template-columns: 210px 1fr;
+    gap: 10px;
+    width: 100%;
+    min-height: auto;
+    padding: 0;
+    background: #ffffff;
+    color: #000000;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .printLogo {
+    display: block;
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 4px;
+  }
+
+  .page::before {
+    content: none;
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0;
+    border: none;
+    background: #ffffff;
+  }
+
+  .card {
+    padding: 4px 6px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    background: #ffffff;
+    break-inside: avoid;
+  }
+
+  .sidebar .card:nth-of-type(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .sidebar .card:nth-of-type(2) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .sidebar .card:nth-of-type(3) {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .card h3 {
+    font-size: 11px;
+    margin-bottom: 3px;
+    font-weight: 700;
+  }
+
+  .numberedList {
+    max-height: none;
+    margin: 0;
+    padding-left: 16px;
+    overflow: visible;
+    font-size: 10px;
+  }
+
+  .numberedList li {
+    border-bottom: none;
+    min-height: 15px;
+    line-height: 15px;
+    padding: 0;
+    color: #111;
+  }
+
+  .scheduleContainer {
+    padding: 0;
+    overflow: visible;
+  }
+
+  .tableWrapper {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .scheduleTable {
+    width: 100%;
+    min-width: 0;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 9px;
+  }
+
+  .scheduleTable th,
+  .scheduleTable td {
+    border: 1px solid #64748b;
+    padding: 2px 3px;
+    height: 22px;
+    line-height: 1.1;
+    overflow: hidden;
+  }
+
+  .scheduleTable thead th {
+    position: static;
+    height: 22px;
+    background: #edf5ea;
+    color: #111;
+    font-size: 9px;
+  }
+
+
+  .timeCol {
+    width: 62px;
+    background: #f4f7f1;
+    font-weight: 600;
+    color: #111;
+    text-align: center;
+  }
+
+  .hourInput {
+    width: 70px;
+    border: 0;
+    background: transparent;
+    color: #111;
+  }
+
+  .printOnlyText {
+    display: inline;
+  }
+
+  .cellButton {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: none;
+    background: transparent;
+    text-align: left;
+  }
+
+  .assignment strong,
+  .assignment small {
+    display: block;
+    color: #111;
+    font-size: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .promoCard {
+    display: none;
+  }
+
+  .printFooterBox {
+    display: block;
+    background: #fff;
+    color: #111;
+    margin-top: auto;
+    padding: 6px;
+    border: 1px solid #94a3b8;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+  }
+}
+
+@media (max-width: 820px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .brandLink {
+    grid-column: 1 / -1;
+  }
+
+  .promoCard {
+    grid-column: 1 / -1;
+  }
+
+  .tableWrapper {
+    height: 560px;
+  }
+}
+
+@media (max-width: 520px) {
+  .page {
+    padding: 10px;
+  }
+
+  .sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .brandLink,
+  .promoCard {
+    grid-column: auto;
+  }
+}

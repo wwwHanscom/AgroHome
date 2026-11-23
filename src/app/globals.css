@@ -13,3 +13,38 @@
   }
 }
 
+@page {
+  size: landscape;
+  margin: 8mm;
+}
+
+@media print {
+  html,
+  body,
+  html.dark,
+  body.dark,
+  .dark,
+  .dark * {
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  dialog,
+  [role="dialog"] {
+    display: none !important;
+  }
+
+  body {
+    background: #fff !important;
+  }
+
+  header,
+  footer,
+  .popup-widget,
+  .site-footer,
+  [class*="footer"],
+  [role="dialog"] {
+    display: none !important;
+  }
+}
+

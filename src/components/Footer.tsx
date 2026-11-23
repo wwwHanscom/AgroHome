@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
-import { Container } from "@/components/Container";
+import { Contenedor } from "@/components/Contenedor";
 
 export function Footer() {
   const navigation = [
@@ -17,10 +17,15 @@ export function Footer() {
     "Privacidad",
     "Términos de uso",
   ];
-  const social = ["GitHub", "Instagram", "LinkedIn"];
+  const team = [
+    "Hans Rivas",
+    "Alexis Helguero",
+    "Diego Ruiz",
+    "Alina Burgos",
+  ];
   return (
-    <div className="relative">
-      <Container>
+    <div className="site-footer relative">
+      <Contenedor>
         <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <div>
@@ -68,15 +73,14 @@ export function Footer() {
             </div>
           </div>
           <div>
-            <div className="font-medium text-gray-800 dark:text-gray-200">Síguenos</div>
-            {social.map((item, index) => (
-              <a
-                key={index}
-                href="#"
-                className="block px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-green-500"
+            <div className="font-medium text-gray-800 dark:text-gray-200">Grupo Tucanes</div>
+            {team.map((member) => (
+              <div
+                key={member}
+                className="px-4 py-2 -ml-4 text-gray-500 dark:text-gray-300"
               >
-                {item}
-              </a>
+                {member}
+              </div>
             ))}
           </div>
         </div>
@@ -84,7 +88,7 @@ export function Footer() {
         <div className="my-10 text-sm text-center text-gray-600 dark:text-gray-400">
           Copyright © 2026 AgroHome · Grupo Tucanes. Desarrollado para el Hackatón Cultivando Igualdad (Fundación Heifer Ecuador & i3lab ESPOL).
         </div>
-      </Container>
+      </Contenedor>
     </div>
   );
 }

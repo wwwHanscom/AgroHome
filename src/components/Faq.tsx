@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
-import { Container } from "@/components/Container";
+import { Contenedor } from "@/components/Contenedor";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/24/solid";
 
 export const Faq = () => {
   return (
-    <Container className="!p-0">
+    <Contenedor className="!p-0">
       <div className="w-full max-w-2xl p-2 mx-auto rounded-2xl">
         {faqdata.map((item, index) => (
           <div key={item.question} className="mb-5">
@@ -30,7 +30,7 @@ export const Faq = () => {
           </div>
         ))}
       </div>
-    </Container>
+    </Contenedor>
   );
 }
 

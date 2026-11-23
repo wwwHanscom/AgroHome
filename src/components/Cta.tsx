@@ -1,16 +1,16 @@
 import React from "react";
-import { Container } from "@/components/Container";
+import { Contenedor } from "@/components/Contenedor";
 
 export const Cta = () => {
   return (
-    <Container>
+    <Contenedor>
       <div className="flex flex-wrap items-center justify-between w-full max-w-4xl gap-5 mx-auto text-white bg-green-600 px-7 py-7 lg:px-12 lg:py-12 lg:flex-nowrap rounded-xl">
         <div className="flex-grow text-center lg:text-left">
           <h2 className="text-2xl font-medium lg:text-3xl">
-            Empieza a gestionar tu hogar con igualdad.
+            ¿Eres comprador o inversionista?
           </h2>
           <p className="mt-2 font-medium text-white text-opacity-90 lg:text-xl">
-            Crea y descarga gratis el Tablero Familiar de AgroHome en minutos.
+            Apoya a las agriculta familiar.
           </p>
         </div>
         <div className="flex-shrink-0 w-full text-center lg:w-auto">
@@ -20,10 +20,10 @@ export const Cta = () => {
             rel="noopener"
             className="inline-block py-3 mx-auto text-lg font-medium text-center text-green-600 bg-white rounded-md px-7 lg:px-10 lg:py-5 "
           >
-            Descargar Tablero
+            Agro Negocios
           </a>
         </div>
       </div>
-    </Container>
+    </Contenedor>
   );
 };
