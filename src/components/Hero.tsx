@@ -1,8 +1,14 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 import { Contenedor } from "@/components/Contenedor";
+import { LoginDialog } from "@/components/LoginDialog";
 import agricultoraImg from "../../public/img/Agricultora.png";
 
 export const Hero = () => {
+  const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false);
+
   return (
     <>
       <section className="relative isolate flex min-h-[620px] items-center overflow-hidden">
@@ -28,11 +34,12 @@ export const Hero = () => {
             </p>
 
             <div className="flex flex-col items-start space-y-3 sm:justify-start sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
-              <a
-                href="/tablero"
+              <button
+                type="button"
+                onClick={() => setIsLoginDialogOpen(true)}
                 className="px-8 py-4 text-lg font-medium text-center text-white bg-green-600 rounded-md hover:bg-green-700">
                 Iniciar sesión
-              </a>
+              </button>
               <a
                 href="/registro"
                 className="px-8 py-4 text-lg font-medium text-center text-white bg-gray-700/90 rounded-md hover:bg-gray-800">
@@ -69,6 +76,10 @@ export const Hero = () => {
           </div>
         </Contenedor>
       </div>
+      <LoginDialog
+        open={isLoginDialogOpen}
+        onClose={() => setIsLoginDialogOpen(false)}
+      />
     </>
   );
 }
